@@ -20,7 +20,7 @@ services:
     restart: always
     
   web:
-    build: ./
+    build: ./apache/Dockerfile
     image: nextcloud_custom:latest
     deploy:
       placement:
