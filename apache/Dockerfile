@@ -10,9 +10,9 @@ RUN \
 	
 RUN a2enmod php7.4 && a2enmod rewrite
 
+ADD https://download.nextcloud.com/server/releases/nextcloud-22.2.2.zip /var/www/
 RUN \
 	cd /var/www/ && \
-	wget https://download.nextcloud.com/server/releases/nextcloud-22.2.2.zip && \
 	unzip nextcloud-22.2.2.zip && \
     rm -f nextcloud-22.2.2.zip && \
     chown www-data. -R nextcloud
