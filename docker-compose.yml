@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:latest
+    deploy:
+      placement:
+        constraints:
+          - "node.hostname==manager"
+    container_name: docker-mysql-nextcloud
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: nextcloud
+      MYSQL_USER: next
+      MYSQL_PASSWORD: supersegura1234
+      MYSQL_ROOT_PASSWORD: mas_segura1234
+    ports:
+      - "3306:3306"
+    restart: always
+    
+  web:
+    build: .
+    deploy:
+      placement:
+        constraints:
+          - "node.hostname==manager"
+    container_name: docker-next
+    ports:
+      - "8083:80"
+    links:
+      - mysql
+    restart: always
+
+volumes:
+  mysql:
+  portainer_portainer_data:
