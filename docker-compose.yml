@@ -9,7 +9,7 @@ services:
           - "node.hostname==manager"
     container_name: docker-mysql-nextcloud
     volumes:
-      - ./mysql:/var/lib/mysql
+      - mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: nextcloud
       MYSQL_USER: next
@@ -34,3 +34,6 @@ services:
     links:
       - mysql
     restart: always
+
+volumes:
+  mysql:
