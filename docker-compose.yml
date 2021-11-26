@@ -20,8 +20,7 @@ services:
     restart: always
     
   web:
-    build: ./apache/Dockerfile
-    
+    build: .
     deploy:
       placement:
         constraints:
