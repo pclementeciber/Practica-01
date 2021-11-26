@@ -17,6 +17,8 @@ RUN \
     rm -f nextcloud-22.2.2.zip && \
     chown www-data. -R nextcloud
 
+COPY nextcloud.conf /etc/apache2/sites-enabled/
+
 EXPOSE 80
 
 CMD ["/usr/sbin/apache2ctl", "-DFOREGROUND"]

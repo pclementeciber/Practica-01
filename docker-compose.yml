@@ -29,11 +29,10 @@ services:
     container_name: docker-next
     ports:
       - "8083:80"
-    volumes:
-      - ./sites-enabled:/etc/apache2/sites-enabled
     links:
       - mysql
     restart: always
 
 volumes:
   mysql:
+  portainer_portainer_data:
