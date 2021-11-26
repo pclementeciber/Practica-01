@@ -9,7 +9,7 @@ services:
           - "node.hostname==worker01"
     container_name: docker-mysql-nextcloud
     volumes:
-      - /tmp/mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: nextcloud
       MYSQL_USER: next
@@ -30,7 +30,7 @@ services:
     ports:
       - "8083:80"
     volumes:
-      - /vagrant/sites-available/:/etc/apache2/sites-enabled/
+      - ./sites-available/:/etc/apache2/sites-enabled/
     links:
       - mysql
     restart: always
