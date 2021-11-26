@@ -30,7 +30,7 @@ services:
     ports:
       - "8083:80"
     volumes:
-      - ./sites-available/:/etc/apache2/sites-enabled/
+      - ./sites-enabled:/etc/apache2/sites-enabled
     links:
       - mysql
     restart: always
